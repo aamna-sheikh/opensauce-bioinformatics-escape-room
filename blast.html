@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Puzzle 02 | Database Analysis</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <main class="lab-screen">
+
+        <section class="terminal-card">
+
+            <p class="system-line">
+                // GENOME LAB ANALYSIS PIPELINE
+            </p>
+
+            <p class="step-label">
+                // PUZZLE 02 · STEP 2 OF 5
+            </p>
+
+            <h1>Database Analysis</h1>
+
+
+            <!-- STORY + BLAST EXPLANATION -->
+
+            <div class="mission-box">
+
+                <p>
+                    <strong>Case File Update</strong>
+                </p>
+
+                <p>
+                    The decoded message from the previous puzzle has led you to the
+                    <span class="highlight-orange">
+                        Database Analysis Terminal
+                    </span>.
+                    A mysterious protein sequence was recovered during the initial
+                    investigation, but its identity is still unknown.
+                </p>
+
+                <p>
+                    Bioinformaticians use
+                    <span class="highlight-orange">
+                        BLAST (Basic Local Alignment Search Tool)
+                    </span>
+                    to compare an unknown biological sequence against large databases
+                    of known sequences.
+                </p>
+
+                <p>
+                    BLAST searches for similar sequences and ranks the results based on
+                    how closely they match. A strong match can help scientists determine
+                    what a protein is, predict its biological function, and understand
+                    where it may have come from.
+                </p>
+
+                <p>
+                    <strong>Your mission:</strong>
+                    Run the simulated BLAST search below and identify the
+                    <span class="highlight-orange">
+                        highest-ranking protein match
+                    </span>.
+                    The results will reveal the next clue in your investigation.
+                </p>
+
+            </div>
+
+
+            <!-- PRELOADED SEQUENCE -->
+
+            <label
+                for="blastSequence"
+                class="input-label"
+            >
+                Recovered Protein Sequence
+            </label>
+
+            <textarea
+                id="blastSequence"
+                readonly
+                aria-label="Recovered protein sequence"
+            >MVH LTP EEK SAV TAL WGK VNV</textarea>
+
+            <p class="small-note">
+                ✓ Protein sequence successfully recovered.
+                Editing is disabled. The sequence is ready for database analysis.
+            </p>
+
+
+            <!-- RUN BUTTON -->
+
+            <button
+                type="button"
+                onclick="runBlast()"
+            >
+                RUN BLAST
+            </button>
+
+
+            <!-- LOADING SCREEN -->
+
+            <div
+                id="blastLoading"
+                class="hidden loading-box"
+                aria-live="polite"
+            >
+
+                <p>INITIALIZING DATABASE SEARCH...</p>
+
+                <p>COMPARING SEQUENCE AGAINST KNOWN PROTEINS...</p>
+
+                <p>CALCULATING SIMILARITY SCORES...</p>
+
+                <p>RANKING DATABASE MATCHES...</p>
+
+            </div>
+
+
+            <!-- RESULTS -->
+
+            <div
+                id="blastResults"
+                class="hidden result-box"
+                aria-live="polite"
+            >
+
+                <p class="status-success">
+                    DATABASE SEARCH COMPLETE
+                </p>
+
+                <h2>BLAST Results</h2>
+
+                <p class="small-note">
+                    Results are ranked by sequence similarity.
+                </p>
+
+
+                <div class="results-table">
+
+                    <div class="table-row table-header">
+                        <span>Rank</span>
+                        <span>Description</span>
+                        <span>Score</span>
+                        <span>Identity</span>
+                    </div>
+
+                    <div class="table-row top-hit">
+                        <span>1</span>
+                        <span>Hemoglobin subunit beta</span>
+                        <span>248</span>
+                        <span>98.7%</span>
+                    </div>
+
+                    <div class="table-row">
+                        <span>2</span>
+                        <span>Myoglobin-like protein</span>
+                        <span>174</span>
+                        <span>71.2%</span>
+                    </div>
+
+                    <div class="table-row">
+                        <span>3</span>
+                        <span>Oxygen-binding globin domain protein</span>
+                        <span>151</span>
+                        <span>64.9%</span>
+                    </div>
+
+                    <div class="table-row">
+                        <span>4</span>
+                        <span>Cytochrome-associated protein</span>
+                        <span>92</span>
+                        <span>38.4%</span>
+                    </div>
+
+                </div>
+
+                <p class="small-note">
+                    Focus on the protein name in the highest-ranking result.
+                </p>
+
+
+                <!-- CLUE -->
+
+                <div class="clue-box">
+
+                    <h3>Clue</h3>
+
+                    <p>
+                        This protein carries something
+                        <span class="red-text">essential</span>
+                        for life.
+                    </p>
+
+                    <p>
+                        Think about where it is
+                        <span class="red-text">found</span>.
+                    </p>
+
+                    <p>
+                        <span class="red-text">Follow</span>
+                        where it travels.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

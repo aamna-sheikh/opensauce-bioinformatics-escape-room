@@ -1,0 +1,475 @@
+/* =======================================================
+   GENOME LAB ESCAPE ROOM
+   Northeastern Bioinformatics Escape Room
+   Author: Aamna Sheikh
+======================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#0b0f16;
+    background-image:
+        radial-gradient(circle at top left, rgba(0,255,170,.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(139,92,246,.10), transparent 30%);
+
+    color:white;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    line-height:1.6;
+
+}
+
+.lab-screen{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:25px;
+
+}
+
+.terminal-card{
+
+    width:100%;
+
+    max-width:900px;
+
+    background:#111722;
+
+    border:2px solid #24354e;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:
+    0 0 40px rgba(0,255,170,.08);
+
+}
+
+/* ========================================= */
+
+.system-line{
+
+    color:#00d6b5;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-size:.85rem;
+
+    margin-bottom:6px;
+
+}
+
+.step-label{
+
+    color:#8b5cf6;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+h1{
+
+    font-size:2.2rem;
+
+    margin-bottom:25px;
+
+}
+
+h2{
+
+    margin-bottom:12px;
+
+}
+
+h3{
+
+    margin-bottom:10px;
+
+}
+
+/* ========================================= */
+
+.mission-box,
+.loading-box,
+.result-box,
+.clue-box,
+.sample-box{
+
+    background:#0d131d;
+
+    border-left:4px solid #00d6b5;
+
+    border-radius:10px;
+
+    padding:18px;
+
+    margin:22px 0;
+
+}
+
+.clue-box{
+
+    border-left:4px solid #8b5cf6;
+
+}
+
+.status-success{
+
+    color:#00d6b5;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+/* ========================================= */
+
+.highlight-orange{
+
+    color:#ffb489;
+
+    font-weight:bold;
+
+}
+
+.red-text{
+
+    color:#ff3d3d;
+
+    font-weight:bold;
+
+}
+
+.small-note{
+
+    color:#97a8bf;
+
+    font-size:.9rem;
+
+    margin-top:8px;
+
+}
+
+.final-direction{
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+    color:#00d6b5;
+
+}
+
+/* ========================================= */
+
+.input-label{
+
+    display:block;
+
+    margin-top:25px;
+
+    margin-bottom:10px;
+
+    color:#00d6b5;
+
+    font-weight:bold;
+
+}
+
+textarea{
+
+    width:100%;
+
+    min-height:120px;
+
+    resize:none;
+
+    border-radius:10px;
+
+    border:2px solid #24354e;
+
+    background:#08111b;
+
+    color:white;
+
+    padding:15px;
+
+    font-size:1rem;
+
+    font-family:Consolas, monospace;
+
+}
+
+textarea:focus{
+
+    outline:none;
+
+    border-color:#00d6b5;
+
+}
+
+textarea[readonly]{
+
+    cursor:not-allowed;
+
+    color:#d9f7ff;
+
+}
+
+/* ========================================= */
+
+button{
+
+    margin-top:25px;
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#00d6b5;
+
+    color:#071018;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#00f0ca;
+
+    transform:translateY(-2px);
+
+}
+
+/* ========================================= */
+
+.hidden{
+
+    display:none;
+
+}
+
+.message{
+
+    margin-top:20px;
+
+    font-weight:bold;
+
+}
+
+/* ========================================= */
+
+.results-table{
+
+    margin:20px 0;
+
+    border:1px solid #223148;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+.table-row{
+
+    display:grid;
+
+    grid-template-columns:
+
+    70px
+    1fr
+    90px
+    90px;
+
+    padding:12px 14px;
+
+    border-bottom:1px solid #223148;
+
+    gap:10px;
+
+    font-size:.95rem;
+
+}
+
+.table-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.table-header{
+
+    background:#172333;
+
+    color:#00d6b5;
+
+    font-weight:bold;
+
+}
+
+.top-hit{
+
+    background:rgba(0,214,181,.08);
+
+}
+
+/* ========================================= */
+
+.sequence-options{
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.sequence-options label{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:flex-start;
+
+    background:#0d131d;
+
+    border:2px solid #223148;
+
+    border-radius:10px;
+
+    padding:16px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.sequence-options label:hover{
+
+    border-color:#00d6b5;
+
+    transform:translateY(-1px);
+
+}
+
+.sequence-options input{
+
+    margin-top:4px;
+
+}
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
+@media(max-width:700px){
+
+    .lab-screen{
+
+        padding:12px;
+
+    }
+
+    .terminal-card{
+
+        padding:18px;
+
+    }
+
+    h1{
+
+        font-size:1.6rem;
+
+    }
+
+    .mission-box,
+    .loading-box,
+    .result-box,
+    .clue-box,
+    .sample-box{
+
+        padding:14px;
+
+    }
+
+    textarea{
+
+        min-height:90px;
+
+        font-size:.95rem;
+
+    }
+
+    button{
+
+        font-size:1rem;
+
+        padding:15px;
+
+    }
+
+    .table-row{
+
+        grid-template-columns:
+        55px
+        1fr;
+
+        font-size:.85rem;
+
+    }
+
+    .table-row span:nth-child(3),
+    .table-row span:nth-child(4){
+
+        display:none;
+
+    }
+
+    .sequence-options label{
+
+        font-size:.9rem;
+
+        padding:14px;
+
+    }
+
+}

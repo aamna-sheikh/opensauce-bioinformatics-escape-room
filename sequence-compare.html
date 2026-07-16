@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puzzle 04 | Compare</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="lab-screen">
+    <section class="terminal-card">
+      <p class="system-line">// GENOME LAB ANALYSIS PIPELINE</p>
+      <p class="step-label">// PUZZLE 04 · STEP 4 OF 5</p>
+
+      <h1>COMPARE: Identify the Source</h1>
+
+      <div class="mission-box">
+        <p>
+          Bioinformaticians compare DNA sequences to identify where unknown genetic data may have come from.
+        </p>
+        <p>
+          A sequence that exactly matches a known reference can help identify the organism connected to the sample.
+        </p>
+        <p>
+          Enter the reconstructed sequence from Puzzle 3, then choose the reference sequence that matches it exactly.
+        </p>
+      </div>
+
+<label for="sampleSequence" class="input-label">
+Enter the DNA Sequence You Reconstructed
+</label>
+
+<textarea
+    id="sampleSequence"
+    placeholder="Example: ATG CCT GAA TCG AAC GGT TAA"
+></textarea>
+
+<p class="small-note">
+Enter the DNA sequence you reconstructed in Puzzle 3. Spaces are optional—the system compares only the nucleotide bases (A, T, C, and G).
+</p>
+
+      <div class="sequence-options">
+        <label>
+          <input type="radio" name="organism" value="human" />
+          <span><strong>HUMAN</strong><br />AAG ATT ATA CAG AAA CAG ACA</span>
+        </label>
+
+        <label>
+          <input type="radio" name="organism" value="dog" />
+          <span><strong>DOG</strong><br />AAG ATT ATA CAA AAA CAG ACA</span>
+        </label>
+
+        <label>
+          <input type="radio" name="organism" value="cat" />
+          <span><strong>CAT</strong><br />AAG ATT ATA CAT AAA CAG ACA</span>
+        </label>
+
+        <label>
+          <input type="radio" name="organism" value="mouse" />
+          <span><strong>MOUSE</strong><br />AAG ATT ATA CAA AAA TAG ACA</span>
+        </label>
+
+        <label>
+          <input type="radio" name="organism" value="fish" />
+          <span><strong>FISH</strong><br />AAG AGT ATA CAA AAA CAG ACA</span>
+        </label>
+
+        <label>
+          <input type="radio" name="organism" value="bird" />
+          <span><strong>BIRD</strong><br />AAG ATT ATA CAA AAA CGG ACA</span>
+        </label>
+      </div>
+
+      <button onclick="compareSequence()">COMPARE SEQUENCE</button>
+
+      <div id="compareMessage" class="message"></div>
+
+      <div id="compareSuccess" class="hidden result-box">
+        <p class="status-success">MATCH CONFIRMED</p>
+        <h2>Organism Identified: DOG</h2>
+
+        <div class="clue-box">
+          <h3>Final Step</h3>
+          <p>
+            You’ve identified the organism. Now determine its specific type.
+          </p>
+          <p class="final-direction">
+            Proceed to the <strong>Final Analysis Terminal</strong>.
+          </p>
+          <p>
+            Remember, you may need to use information obtained from Puzzles 1–4 in the final puzzle.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
