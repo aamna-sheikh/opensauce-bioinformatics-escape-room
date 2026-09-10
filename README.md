@@ -22,7 +22,7 @@ This repository contains materials used to develop and implement the bioinformat
 
 ## Authors
 
-**Aamna Z. U. Sheikh**  
+**Aamna Sheikh**  
 **Dr. Jennifer A. Cassano**  
 Northeastern University, Oakland
 
